@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hanken+Grotesk">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Frontend Mentor | Tip calculator app</title>
+</head>
+<body>
+<main>
+    <style>
+        .square {
+           /* text-align: center;
+           // align-items: center;
+          //  justify-content: center;  background-color: #bbb;
+          //  border-radius: 50%;width: 50%;
+          //  height: 50%; */
+            text-align: center;
+         align-items: center;
+            aspect-ratio: 1 / 1 ;
+            min-height: 20vh;
+            justify-content: center;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: flex;
+        }
+        .square-container {
+            padding: 50px;
+        }
+    </style>
+
+    <form name="calculate-tip" id="calculate-tip" method="post">
+        <div class="container">
+            <div>
+                <div class="title"><h1>Your Result</h1></div>
+                <div class="square-container">
+                    <div class="square" style="">
+                        <div>
+                            <div class="label" id="result" style="font-size: 3rem;">0</div>
+                            <div class="">of 100</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fields-container">
+                <div class="input-container">
+                    <label class="h4 label" for="foundations">Foundations</label>
+                    <span class="error-msg" id="foundations-msg-container"></span>
+                    <div class="people input-icons" style="">
+                        <i class="fa fa-code icon"></i>
+                        <input type="number" class="input-field" name="foundations" id="foundations" value="" min="0" max="100" title="Can't be less than 0 and has to be less or equal to 100" required/>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <label class="h4 label" for="imperative">Imperative</label>
+                    <span class="error-msg" id="imperative-msg-container"></span>
+                    <div class="people input-icons">
+                        <i class="fa fa-star icon"></i>
+                        <input type="number" class="input-field" name="imperative" id="imperative" value="" min="0" max="100" title="Can't be less than 0" required/>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <label class="h4 label" for="objects">Objects</label>
+                    <span class="error-msg" id="objects-msg-container"></span>
+                    <div class="people input-icons" style="">
+                        <i class="fa fa-user icon"></i>
+                        <input type="number" class="input-field" name="objects" id="objects" value="" min="0" max="100" title="Can't be less than 0" required/>
+                    </div>
+                </div>
+                <input type="button" class="btn-reset" name="reset-btn" onclick="resetForm()" id="reset-btn" value="REset"/>
+            </div>
+        </div>
+    </form>
+</main>
+<footer>
+    <div class="footer-container">
+        <div class="attribution">
+            Challenge by Jovenes a Programar.
+            Coded by <a href="#">Matias Olivera</a>.
+        </div>
+    </div>
+</footer>
+<script src="assets/js/index.js"></script>
+</body>
+</html>
