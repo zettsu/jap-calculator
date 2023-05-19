@@ -61,8 +61,19 @@ function resetForm(){
     document.getElementById('foundations').value = ''
 
     document.getElementById('result').innerText = "0.00"
+
+    let color = hsl_col_perc(0, green, red);
+    setWavePercent(0)
+    setWaveColor(color)
 }
 
+function setWaveColor(color) {
+    document.getElementsByClassName('wave')[0].style.backgroundColor = color
+}
+
+function setWavePercent(percent) {
+    document.getElementsByClassName('wave')[0].style.top = (100 - percent).toString()+"%";
+}
 
 function setErrorMessage(field) {
     if (document.getElementById(`${field.id}-msg-container`) !== null) {
@@ -111,9 +122,9 @@ function calculate() {
     let total = imperativeCalculated + foundationsCalculated + objectsCalculated
 
     let color = hsl_col_perc((100 - total), green, red);
+    setWavePercent(total)
+    setWaveColor(color)
 
-    document.getElementsByClassName('wave')[0].style.top = (100 - total).toString()+"%";
-    document.getElementsByClassName('wave')[0].style.backgroundColor = color
     if (!isNotANumber(total.toString())) {
         document.getElementById('result').innerText = total.toFixed(2)
     }else {
