@@ -8,7 +8,7 @@ function cleanErrorMessages() {
 
 
 
-document.getElementById('imperative').addEventListener('input', (evt) => {
+document.getElementById('imperative').addEventListener('change', (evt) => {
     calculate()
 });
 
@@ -17,6 +17,24 @@ document.getElementById('foundations').addEventListener('change', () => {
 });
 document.getElementById('objects').addEventListener('change', () => {
     calculate()
+});
+
+['input','focusout'].forEach( event => {
+    document.getElementById('objects').addEventListener(event, (evt) => {
+        calculate()
+    });
+});
+
+['input','focusout'].forEach( event => {
+    document.getElementById('imperative').addEventListener(event, (evt) => {
+        calculate()
+    });
+});
+
+['input','focusout'].forEach( event => {
+    document.getElementById('foundations').addEventListener(event, (evt) => {
+        calculate()
+    });
 });
 
 
@@ -71,7 +89,7 @@ function calculate() {
     let total = imperativeCalculated + foundationsCalculated + objectsCalculated
 
     if (!isNotANumber(total.toString())) {
-        document.getElementById('result').innerText = total.toString()
+        document.getElementById('result').innerText = total.toFixed(2)
     }else {
         document.getElementById('result').innerText = "0.00"
     }
