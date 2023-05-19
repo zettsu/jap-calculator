@@ -320,7 +320,19 @@ main {
     }
 }
 
-
+.square {
+    text-align: center;
+    align-items: center;
+    aspect-ratio: 1 / 1 ;
+    min-height: 20vh;
+    justify-content: center;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: flex;
+}
+.square-container {
+    padding: 50px;
+}
 
 .circle {
     position: relative;
