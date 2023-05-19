@@ -74,13 +74,9 @@ function isNotANumber(value) {
 function calculate() {
     validate()
 
-    if (isInvalid()) {
-       return
-    }
-
-    let imperative = document.getElementById('imperative').value;
-    let foundations = document.getElementById('foundations').value;
-    let objects = document.getElementById('objects').value;
+    let imperative = document.getElementById('imperative').value || 0
+    let foundations = document.getElementById('foundations').value || 0
+    let objects = document.getElementById('objects').value || 0
 
     let imperativeCalculated = parseFloat(imperative) * 0.50
     let foundationsCalculated = parseFloat(foundations) * 0.30
