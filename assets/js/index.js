@@ -71,7 +71,7 @@ function calculate() {
     let total = imperativeCalculated + foundationsCalculated + objectsCalculated
 
     if (!isNotANumber(total.toString())) {
-        document.getElementById('result').innerText = total.toFixed(2)
+        document.getElementById('result').innerText = total.toString()
     }else {
         document.getElementById('result').innerText = "0.00"
     }
