@@ -42,8 +42,11 @@ document.getElementById('objects').addEventListener('change', () => {
 
 
 function restrictValue(input) {
-    if (input.value < 1) {
-        input.value = 1;
+    if (input === "") {
+        return;
+    }
+    if (input.value < 0) {
+        input.value = 0;
     }
     if (input.value > 100) {
         input.value = 100;
@@ -91,7 +94,7 @@ function hsl_col_perc(percent, start, end) {
         c = b + start;
 
     // Return a CSS HSL string
-    return 'hsl('+c+', 100%, 50%)';
+    return 'hsl('+c+', 90%, 40%)';
 }
 
 function calculate() {
