@@ -56,9 +56,9 @@ function restrictValue(input) {
 function resetForm(){
     cleanErrorMessages()
 
-    document.getElementById('imperative').value = 1
-    document.getElementById('objects').value = 1
-    document.getElementById('foundations').value = 1
+    document.getElementById('imperative').value = ''
+    document.getElementById('objects').value = ''
+    document.getElementById('foundations').value = ''
 
     document.getElementById('result').innerText = "0.00"
 }
