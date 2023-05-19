@@ -21,22 +21,34 @@ document.getElementById('objects').addEventListener('change', () => {
 
 ['input','focusout'].forEach( event => {
     document.getElementById('objects').addEventListener(event, (evt) => {
+        restrictValue(document.getElementById('objects'))
         calculate()
     });
 });
 
 ['input','focusout'].forEach( event => {
     document.getElementById('imperative').addEventListener(event, (evt) => {
+        restrictValue(document.getElementById('imperative'))
         calculate()
     });
 });
 
 ['input','focusout'].forEach( event => {
     document.getElementById('foundations').addEventListener(event, (evt) => {
+        restrictValue(document.getElementById('foundations'))
         calculate()
     });
 });
 
+
+function restrictValue(input) {
+    if (input.value < 1) {
+        input.value = 1;
+    }
+    if (input.value > 100) {
+        input.value = 100;
+    }
+}
 
 function resetForm(){
     cleanErrorMessages()
@@ -62,14 +74,25 @@ function validate() {
     fields.forEach(field => setErrorMessage(field))
 }
 
-function isInvalid() {
-    return document.querySelectorAll(':invalid').length !== 0
-}
-
 function isNotANumber(value) {
     return 'NaN' === value || 'Infinity' === value || undefined === value || 'undefined' === value || 'null' === value || null === value
 }
 
+// Just used as a shortcut for below, completely optional
+const red = 0,
+    yellow = 60,
+    green = 120,
+    turquoise = 180,
+    blue = 240,
+    pink = 300;
+function hsl_col_perc(percent, start, end) {
+    var a = percent / 100,
+        b = (end - start) * a,
+        c = b + start;
+
+    // Return a CSS HSL string
+    return 'hsl('+c+', 100%, 50%)';
+}
 
 function calculate() {
     validate()
@@ -84,6 +107,10 @@ function calculate() {
 
     let total = imperativeCalculated + foundationsCalculated + objectsCalculated
 
+    let color = hsl_col_perc((100 - total), green, red);
+
+    document.getElementsByClassName('wave')[0].style.top = (100 - total).toString()+"%";
+    document.getElementsByClassName('wave')[0].style.backgroundColor = color
     if (!isNotANumber(total.toString())) {
         document.getElementById('result').innerText = total.toFixed(2)
     }else {
