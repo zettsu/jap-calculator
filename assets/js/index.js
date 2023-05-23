@@ -127,6 +127,7 @@ function calculate() {
 
     if (!isNotANumber(total.toString())) {
         document.getElementById('result').innerText = total.toFixed(2)
+
     }else {
         document.getElementById('result').innerText = "0.00"
     }
